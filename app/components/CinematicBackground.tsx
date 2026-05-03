@@ -59,7 +59,7 @@ export default function CinematicBackground() {
             loop
             playsInline
             preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-[75%_center] sm:object-center"
             style={{
               filter: "brightness(0.65) contrast(0.9) saturate(0.75)",
             }}
