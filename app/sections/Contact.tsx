@@ -67,7 +67,14 @@ export default function Contact() {
      * border-t gives a faint horizontal rule that closes the content above.
      * No min-h-screen — height is purely content-driven.
      */
-    <SectionWrapper id="contact" className="border-t border-white/[0.06]">
+    /*
+     * Mobile pb-[120px]: the last section of the page deserves an extra safe zone
+     * beyond the global body pb-[100px] — guarantees the closing gradient rule
+     * never sits anywhere near the floating nav pill, even on shorter phones.
+     * md:pb-20 / lg:pb-24: restores normal section rhythm at larger breakpoints
+     * (overrides SectionWrappers md:py-20 / lg:py-24 bottom).
+     */
+    <SectionWrapper id="contact" className="border-t border-white/[0.06] pb-[120px] md:pb-20 lg:pb-24">
       <div className="text-center flex flex-col items-center">
 
         <p

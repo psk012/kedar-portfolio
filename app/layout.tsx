@@ -31,12 +31,13 @@ export default function RootLayout({
         />
       </head>
       {/*
-       * pb-[88px] on mobile: ensures the fixed bottom nav pill (≈52px tall,
-       * sitting at bottom-5 = 20px from the viewport edge) never covers
-       * the last line of page content. 88px > 20+52 = 72px, giving a 16px gap.
-       * lg:pb-0: desktop uses a vertical rail nav — no bottom clearance needed.
+       * Mobile safe-area: pb-[100px] guarantees content never sits under the
+       * floating nav pill. With the pill at bottom-4 (16px) and ≈48px tall,
+       * its top edge is ~64px from the viewport bottom — leaving a clean
+       * 36px buffer between the last line of content and the nav.
+       * lg:pb-0: desktop's vertical rail nav doesn't need bottom clearance.
        */}
-      <body className="text-zinc-200 antialiased min-h-screen overflow-x-hidden pb-[88px] lg:pb-0">
+      <body className="text-zinc-200 antialiased min-h-screen overflow-x-hidden pb-[100px] lg:pb-0">
         {children}
       </body>
     </html>
