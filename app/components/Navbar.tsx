@@ -142,14 +142,15 @@ export default function Navbar() {
       {/* ── Mobile: Bottom floating pill ─────────────────── */}
       {/*
        * Layout:
-       *   bottom-4         → 16px from viewport edge (per spec)
-       *   w-[88vw]         → 88% screen width
-       *   max-w-[420px]    → never wider than 420px on tablets
-       *   left-1/2 + -translate-x-1/2 → centered horizontally
+       *   bottom-4         → 16px from viewport edge
+       *   left-4 right-4   → anchors to both sides with 16px gap
+       *   mx-auto          → centers the element stably without transforms
+       *   w-auto           → fills the space left by left/right constraints
+       *   max-w-[420px]    → caps width on larger phones/tablets
        */}
       <nav
         ref={mobileRef}
-        className="lg:hidden fixed bottom-[12px] left-1/2 -translate-x-1/2 z-50 w-[88%] max-w-[420px]"
+        className="lg:hidden fixed bottom-4 left-4 right-4 mx-auto z-50 w-auto max-w-[420px]"
         aria-label="Site navigation"
       >
         <div
