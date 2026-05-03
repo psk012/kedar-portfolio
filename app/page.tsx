@@ -16,21 +16,21 @@ const saman = localFont({
 function Footer() {
   return (
     <footer className="border-t border-white/[0.08]">
-      <Container className="py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 relative">
-          <span className="font-display text-xs font-medium tracking-widest uppercase text-zinc-700">
+      <Container className="py-8 md:py-12">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-5 md:gap-8 relative">
+          <span className="font-display text-xs font-medium tracking-widest uppercase text-zinc-700 order-3 md:order-1">
             © P. S. Kedar
           </span>
 
-          <p className={`${saman.className} text-zinc-300 tracking-widest text-lg md:text-2xl md:absolute md:left-1/2 md:-translate-x-1/2`}>
+          <p className={`${saman.className} text-zinc-300 tracking-widest text-base md:text-2xl order-1 md:order-2 md:absolute md:left-1/2 md:-translate-x-1/2`}>
             Raso Vai Saha
           </p>
 
-          <div className="flex gap-6 text-xs font-medium tracking-widest uppercase">
+          <div className="flex gap-5 text-xs font-medium tracking-widest uppercase order-2 md:order-3">
             {[
-              { label: "GitHub", href: "https://github.com/psk012" },
+              { label: "GitHub",   href: "https://github.com/psk012" },
               { label: "LinkedIn", href: "https://linkedin.com/in/subrahmanyakedarpantula816" },
-              { label: "Email", href: "mailto:pskedhar@gmail.com" },
+              { label: "Email",    href: "mailto:pskedhar@gmail.com" },
             ].map(({ label, href }) => (
               <a
                 key={label}
@@ -78,7 +78,12 @@ export default function Home() {
 
           lg:pl-16 / xl:pl-0 — offsets content from the left nav rail.
         */}
-        <div className="lg:pl-16 xl:pl-0">
+        {/*
+          pb-24 on mobile ensures the last section's content isn't hidden
+          behind the fixed bottom nav pill (which sits at bottom-6).
+          lg:pb-0 removes the offset once the vertical rail nav takes over.
+        */}
+        <div className="lg:pl-16 xl:pl-0 pb-24 lg:pb-0">
           <Container>
             <About />
             <Projects />

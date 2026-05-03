@@ -24,41 +24,40 @@ const skillGroups = [
   {
     category: "Languages & Tech",
     skills: [
-      { label: "JavaScript", icon: Code2 },
-      { label: "Python", icon: Terminal },
-      { label: "React", icon: Globe },
-      { label: "Node.js / Express", icon: Server },
-      { label: "MongoDB", icon: Database },
-      { label: "Tailwind CSS", icon: Code2 },
+      { label: "JavaScript",       icon: Code2    },
+      { label: "Python",           icon: Terminal  },
+      { label: "React",            icon: Globe     },
+      { label: "Node.js / Express",icon: Server    },
+      { label: "MongoDB",          icon: Database  },
+      { label: "Tailwind CSS",     icon: Code2     },
     ],
   },
   {
     category: "Tools",
     skills: [
       { label: "Git / GitHub", icon: GitBranch },
-      { label: "Postman", icon: Send },
-      { label: "Vercel", icon: Cloud },
-      { label: "Render", icon: Cloud },
+      { label: "Postman",      icon: Send      },
+      { label: "Vercel",       icon: Cloud     },
+      { label: "Render",       icon: Cloud     },
     ],
   },
   {
     category: "Concepts",
     skills: [
-      { label: "REST API Design", icon: Network },
-      { label: "Authentication (JWT / OTP)", icon: Lock },
-      { label: "AES Encryption", icon: Shield },
-      { label: "NLP Pipelines", icon: Brain },
-      { label: "Backend Architecture", icon: Server },
+      { label: "REST API Design",           icon: Network },
+      { label: "Authentication (JWT / OTP)", icon: Lock   },
+      { label: "AES Encryption",            icon: Shield  },
+      { label: "NLP Pipelines",             icon: Brain   },
+      { label: "Backend Architecture",      icon: Server  },
     ],
   },
 ];
 
 export default function Skills() {
-  const labelRef = useRef<HTMLParagraphElement>(null);
+  const labelRef  = useRef<HTMLParagraphElement>(null);
   const groupRefs = useRef<(HTMLParagraphElement | null)[]>([]);
 
   useEffect(() => {
-    // ── "Capabilities" label ──────────────────────────────
     const label = labelRef.current;
     if (label) {
       label.style.opacity = "0";
@@ -67,21 +66,20 @@ export default function Skills() {
       }, 0.5);
     }
 
-    // ── Group category labels ─────────────────────────────
     const groupEls = groupRefs.current.filter(Boolean) as HTMLParagraphElement[];
     groupEls.forEach((el) => {
-      el.style.opacity = "0";
+      el.style.opacity   = "0";
       el.style.transform = "translateY(8px)";
     });
 
     if (groupEls.length) {
       onceInView(groupEls[0], () => {
         animate(groupEls, {
-          opacity: [0, 1],
+          opacity   : [0, 1],
           translateY: [8, 0],
-          duration: 600,
-          ease: EASE,
-          delay: stagger(80),
+          duration  : 600,
+          ease      : EASE,
+          delay     : stagger(80),
         });
       }, 0.1);
     }
@@ -91,25 +89,33 @@ export default function Skills() {
     <SectionWrapper id="skills" className="border-t border-white/[0.08]">
       <p
         ref={labelRef}
-        className="text-[10px] font-medium tracking-[0.2em] uppercase text-zinc-600 mb-6"
+        className="text-[10px] font-medium tracking-[0.2em] uppercase text-zinc-600 mb-5 md:mb-6"
       >
         Capabilities
       </p>
 
-      <AnimatedHeading className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 mb-16">
+      <AnimatedHeading className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 mb-8 md:mb-12 lg:mb-16">
         Stack & Skills
       </AnimatedHeading>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {/*
+       * Columns:
+       *   mobile  → 1 col  (linear, easy to scan)
+       *   tablet  → 2 cols (sm)
+       *   desktop → 3 cols (md)
+       *
+       * Gap reduces on mobile to keep things tight without overflow.
+       */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
         {skillGroups.map((group, gi) => (
           <div key={group.category}>
             <p
               ref={(el) => { groupRefs.current[gi] = el; }}
-              className="text-[10px] font-medium tracking-[0.15em] uppercase text-zinc-600 mb-6"
+              className="text-[10px] font-medium tracking-[0.15em] uppercase text-zinc-600 mb-4 md:mb-6"
             >
               {group.category}
             </p>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2.5 md:gap-3">
               {group.skills.map((skill, si) => (
                 <SkillItem
                   key={skill.label}

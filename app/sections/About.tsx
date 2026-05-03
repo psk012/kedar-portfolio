@@ -8,7 +8,7 @@ export default function About() {
           About
         </p>
 
-        <h2 className="hover-lift font-display text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 mb-10">
+        <h2 className="hover-lift font-display text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 mb-6 md:mb-10">
           I build things
           <br />
           <span className="text-zinc-500">people can actually rely on.</span>

@@ -77,18 +77,18 @@ export default function Contact() {
           Contact
         </p>
 
-        <AnimatedHeading className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 mb-5">
+        <AnimatedHeading className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 mb-4 md:mb-5">
           Let's build something meaningful.
         </AnimatedHeading>
 
-        <p className="text-base text-zinc-600 mb-10 max-w-sm leading-relaxed">
+        <p className="text-sm md:text-base text-zinc-600 mb-8 md:mb-10 max-w-xs sm:max-w-sm leading-relaxed">
           Open to internships, collaborations, and real-world problem solving.
         </p>
 
-        {/* Equal-weight link row */}
+        {/* Equal-weight link row — stacks on mobile */}
         <div
           ref={linksRef}
-          className="flex flex-col sm:flex-row items-center gap-5 sm:gap-10"
+          className="flex flex-row items-center gap-6 sm:gap-10"
         >
           {contactLinks.map(({ label, href, icon: Icon }) => (
             <a
