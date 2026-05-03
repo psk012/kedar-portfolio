@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  /*
+   * CRITICAL — z-index canvas split:
+   *
+   * html carries the opaque page background (#0a0a0a).
+   * body is transparent so that position:fixed elements with z-index:-1
+   * appear between the html canvas and body content (not behind it).
+   *
+   * Without this split, body { background-color: #0a0a0a } would paint
+   * OVER any z=-1 fixed element, making the background video invisible.
+   *
+   * Stack (bottom → top):
+   *   html background (#0a0a0a)   ← opaque page canvas
+   *   z = -1  CinematicBackground  ← fixed video + overlay
+   *   z = auto content              ← navbar, main, footer
+   */
+  html {
+    background-color: #0a0a0a;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-margin-top: 100px;
+  }
+
+  body {
+    background-color: transparent; /* ← Must be transparent — html handles the canvas */
+    color: #e4e4e7;
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(74, 222, 128, 0.2);
+    color: #e4e4e7;
+  }
+}
+
+/* Portrait float — CSS fallback when JS is disabled */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1.08); }
+  50%       { transform: translateY(-10px) scale(1.08); }
+}
+
+/* Scroll cue line pulse */
+@keyframes scrollCuePulse {
+  0%, 100% { transform: translateY(0px); opacity: 0.7; }
+  50%       { transform: translateY(7px);  opacity: 0.3; }
+}
+
+@layer utilities {
+  /* Tailwind doesn't generate bg-white/8 by default */
+  .bg-white\/8 {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /*
+   * glass — used on project cards, skill items, etc.
+   * Very low opacity so the cinematic video bleeds through subtly.
+   */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* glass-navbar — bottom pill + left rail nav */
+  .glass-navbar {
+    background: rgba(10, 10, 10, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /*
+   * hover-lift — applied to headings and key text blocks.
+   * A 2px upward drift on hover: controlled, tactile, not decorative.
+   * No color change, no layout shift — GPU-only transform.
+   */
+  .hover-lift {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: default;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+}
