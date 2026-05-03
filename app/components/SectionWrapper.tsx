@@ -7,12 +7,14 @@ interface SectionWrapperProps {
   children : ReactNode;
   className?: string;
   id?      : string;
+  hero?    : boolean;
 }
 
 export default function SectionWrapper({
   children,
   className = "",
   id,
+  hero = false,
 }: SectionWrapperProps) {
   const ref = useRef<HTMLElement>(null);
 
