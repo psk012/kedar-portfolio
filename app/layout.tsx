@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "System Thinker — Architected for Clarity",
-  description:
-    "A minimal, system-driven portfolio. Structured thinking, engineering discipline, quiet confidence.",
+  title: "This is Kedar",
+  description: "Building systems that survive real use.",
 };
 
 export default function RootLayout({
