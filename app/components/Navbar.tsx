@@ -149,20 +149,15 @@ export default function Navbar() {
        */}
       <nav
         ref={mobileRef}
-        className="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[88vw] max-w-[420px]"
+        className="lg:hidden fixed bottom-[12px] left-1/2 -translate-x-1/2 z-50 w-[88%] max-w-[420px]"
         aria-label="Site navigation"
       >
-        {/*
-         * The pill itself: lighter background (rgba 0,0,0,0.45), softer blur (12px),
-         * and dynamic opacity tied to scroll direction. justify-evenly distributes
-         * the 5 icons across the now-wider pill so it reads as a "control bar".
-         */}
         <div
-          className="flex items-center justify-evenly gap-1 rounded-full px-3 py-2 border border-white/[0.08] shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+          className="w-full h-[56px] flex items-center justify-evenly rounded-full px-2 border border-white/[0.08] shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
           style={{
-            background           : "rgba(0, 0, 0, 0.45)",
-            backdropFilter       : "blur(12px)",
-            WebkitBackdropFilter : "blur(12px)",
+            background           : "rgba(0, 0, 0, 0.40)",
+            backdropFilter       : "blur(14px)",
+            WebkitBackdropFilter : "blur(14px)",
             opacity              : pillOpacity,
             transition           : "opacity 300ms ease",
           }}
@@ -178,9 +173,9 @@ export default function Navbar() {
                   ${isActive ? "text-zinc-100" : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"}`}
               >
                 {isActive && (
-                  <span className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent" />
+                  <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent" />
                 )}
-                <Icon size={15} strokeWidth={isActive ? 2 : 1.5} />
+                <Icon size={16} strokeWidth={isActive ? 2 : 1.5} />
               </button>
             );
           })}

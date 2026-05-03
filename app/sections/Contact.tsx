@@ -84,7 +84,7 @@ export default function Contact() {
           Contact
         </p>
 
-        <AnimatedHeading className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 mb-4 md:mb-5">
+        <AnimatedHeading className="font-display text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 mb-4 md:mb-5">
           Let's build something meaningful.
         </AnimatedHeading>
 
@@ -95,7 +95,7 @@ export default function Contact() {
         {/* Equal-weight link row — stacks on mobile */}
         <div
           ref={linksRef}
-          className="flex flex-row items-center gap-6 sm:gap-10"
+          className="flex flex-col sm:flex-row items-center gap-4 sm:gap-10"
         >
           {contactLinks.map(({ label, href, icon: Icon }) => (
             <a

@@ -94,7 +94,7 @@ export default function Skills() {
         Capabilities
       </p>
 
-      <AnimatedHeading className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 mb-8 md:mb-12 lg:mb-16">
+      <AnimatedHeading className="font-display text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 mb-8 md:mb-12 lg:mb-16">
         Stack & Skills
       </AnimatedHeading>
 
@@ -106,7 +106,7 @@ export default function Skills() {
        *
        * Gap reduces on mobile to keep things tight without overflow.
        */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[16px] sm:gap-10 md:gap-12">
         {skillGroups.map((group, gi) => (
           <div key={group.category}>
             <p

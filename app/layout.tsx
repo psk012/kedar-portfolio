@@ -37,7 +37,7 @@ export default function RootLayout({
        * 36px buffer between the last line of content and the nav.
        * lg:pb-0: desktop's vertical rail nav doesn't need bottom clearance.
        */}
-      <body className="text-zinc-200 antialiased min-h-screen overflow-x-hidden pb-[100px] lg:pb-0">
+      <body className="text-zinc-200 antialiased min-h-screen overflow-x-hidden pb-[120px] lg:pb-0">
         {children}
       </body>
     </html>

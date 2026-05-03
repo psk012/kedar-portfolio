@@ -43,11 +43,10 @@ export default function SectionWrapper({
       id={id}
       /*
        * Vertical rhythm:
-       *   mobile  → py-16 (64px) — premium app cadence, breathable but not airy
-       *   tablet  → py-20 (80px)
-       *   desktop → py-24 (96px)
+       *   mobile  → py-[72px]
+       *   desktop → py-24 (standard) or py-32 (hero)
        */
-      className={`py-16 md:py-20 lg:py-24 ${className}`}
+      className={`${hero ? "py-[72px] md:py-32" : "py-[72px] md:py-24"} ${className}`}
     >
       {children}
     </section>

@@ -264,13 +264,8 @@ export default function Hero() {
             {/* Name — character-split for stagger + hover wave */}
             <h1
               ref={nameRef}
-              className={`${akronim.className} tracking-normal text-zinc-100 cursor-default select-none pb-1 md:pb-2`}
+              className={`${akronim.className} text-[2.4rem] sm:text-[2.8rem] md:text-[5.5rem] tracking-normal text-zinc-100 cursor-default select-none pb-1 md:pb-2`}
               style={{
-                /*
-                 * clamp min drops from 3rem → 2rem so the name fits
-                 * comfortably when centered on a 360px-wide phone.
-                 */
-                fontSize  : "clamp(2.4rem, 10vw, 5.5rem)",
                 lineHeight: 1.05,
                 display   : "inline-block",
               }}
@@ -360,7 +355,7 @@ export default function Hero() {
                  * Mobile portrait — explicit px dimensions required for next/image fill.
                  * Shown only on < md (hidden on desktop via the desktop div below).
                  */}
-                <div className="relative block md:hidden w-[155px] h-[232px] sm:w-[180px] sm:h-[270px]">
+                <div className="relative block md:hidden w-[180px] h-[270px]">
                   <Image
                     src="/images/portrait.png"
                     alt="P. S. Kedar — portrait"
@@ -368,7 +363,7 @@ export default function Hero() {
                     priority
                     className="object-contain object-bottom"
                     style={{ transform: "scale(1.08)", transformOrigin: "bottom center" }}
-                    sizes="(max-width: 640px) 155px, 180px"
+                    sizes="180px"
                   />
                 </div>
 

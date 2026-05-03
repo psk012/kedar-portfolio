@@ -14,7 +14,7 @@ export default function About() {
           <span className="text-zinc-500">people can actually rely on.</span>
         </h2>
 
-        <div className="space-y-6 text-base md:text-lg text-zinc-500 leading-relaxed max-w-2xl">
+        <div className="space-y-6 text-sm md:text-base text-zinc-500 leading-[1.8] max-w-[280px] sm:max-w-lg md:max-w-2xl">
           <p>
             I don&apos;t think much about launching things. I think about what
             happens after; when people actually use it, when things don&apos;t

@@ -112,7 +112,7 @@ export default function Projects() {
       </div>
 
       {/* Cards — single column on mobile, 2-col on md+ */}
-      <div ref={gridRef} className="flex flex-col gap-4 md:gap-6">
+      <div ref={gridRef} className="flex flex-col gap-[20px] md:gap-6">
         {projects.map((project, i) => (
           <a
             key={project.title}
@@ -122,7 +122,7 @@ export default function Projects() {
             rel="noopener noreferrer"
             onMouseEnter={() => onEnter(cardRefs.current[i])}
             onMouseLeave={() => onLeave(cardRefs.current[i])}
-            className="group flex flex-col sm:flex-row w-full glass rounded-xl overflow-hidden
+            className="group flex flex-col sm:flex-row w-full glass rounded-[12px] md:rounded-xl overflow-hidden
                        border border-white/[0.05] hover:border-white/[0.1]
                        hover:shadow-2xl hover:shadow-black/50 transition-all duration-300
                        cursor-pointer bg-zinc-950/40"
@@ -135,7 +135,7 @@ export default function Projects() {
             <div
               className={`
                 relative flex-shrink-0 overflow-hidden
-                w-full h-40 sm:w-1/4 sm:h-auto
+                w-full h-[180px] sm:w-1/4 sm:h-auto
                 border-b border-white/[0.05] sm:border-b-0 sm:border-r border-white/[0.05]
                 ${project.imageBg || "bg-zinc-950"}
               `}
@@ -151,7 +151,7 @@ export default function Projects() {
             </div>
 
             {/* CONTENT */}
-            <div className="flex-1 p-4 sm:p-5 md:p-6 flex flex-col justify-between">
+            <div className="flex-1 p-[16px] sm:p-5 md:p-6 flex flex-col justify-between">
               <div>
                 <div className="flex items-start justify-between gap-4 mb-2 md:mb-3">
                   <h3 className="font-display text-base sm:text-lg md:text-xl font-semibold text-zinc-100 group-hover:text-white transition-colors">
