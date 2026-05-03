@@ -30,7 +30,13 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="text-zinc-200 antialiased min-h-screen overflow-x-hidden">
+      {/*
+       * pb-[88px] on mobile: ensures the fixed bottom nav pill (≈52px tall,
+       * sitting at bottom-5 = 20px from the viewport edge) never covers
+       * the last line of page content. 88px > 20+52 = 72px, giving a 16px gap.
+       * lg:pb-0: desktop uses a vertical rail nav — no bottom clearance needed.
+       */}
+      <body className="text-zinc-200 antialiased min-h-screen overflow-x-hidden pb-[88px] lg:pb-0">
         {children}
       </body>
     </html>

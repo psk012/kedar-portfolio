@@ -83,7 +83,9 @@ export default function Home() {
           behind the fixed bottom nav pill (which sits at bottom-6).
           lg:pb-0 removes the offset once the vertical rail nav takes over.
         */}
-        <div className="lg:pl-16 xl:pl-0 pb-24 lg:pb-0">
+        {/* pb-6: small breathing room before footer. Nav clearance is handled
+            globally by body { padding-bottom: 88px } in layout.tsx. */}
+        <div className="lg:pl-16 xl:pl-0 pb-6 lg:pb-0">
           <Container>
             <About />
             <Projects />

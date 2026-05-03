@@ -93,12 +93,18 @@ export default function Navbar() {
       </nav>
 
       {/* ── Mobile: Bottom pill ──────────────────────────── */}
+      {/*
+       * bottom-5 (20px) positions the pill closer to the bottom edge than the
+       * previous bottom-6 (24px), freeing a touch more content space above it.
+       * max-w-[88vw] prevents the pill from ever stretching edge-to-edge on
+       * very small screens while still fitting all 5 icons comfortably.
+       */}
       <nav
         ref={mobileRef}
-        className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+        className="lg:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50 max-w-[88vw]"
         aria-label="Site navigation"
       >
-        <div className="glass-navbar flex items-center gap-1 rounded-full px-3 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+        <div className="glass-navbar flex items-center gap-1 rounded-full px-3 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
           {links.map(({ href, icon: Icon, label }) => {
             const isActive = active === href;
             return (

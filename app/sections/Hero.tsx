@@ -243,12 +243,12 @@ export default function Hero() {
          *                   portrait on top (order-1), text below (order-2)
          *   Desktop (md+) → flex-row, text left, portrait right (existing layout)
          */}
-        <div className="flex flex-col md:flex-row items-center justify-center md:justify-center w-full gap-6 sm:gap-8 md:gap-16 lg:gap-52">
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-center w-full gap-8 sm:gap-10 md:gap-16 lg:gap-52">
 
           {/* ── TEXT (order-2 mobile → left on desktop) ───── */}
           <motion.div
             style={{ y: textY }}
-            className="flex flex-col gap-4 md:gap-6 max-w-md lg:max-w-lg min-w-0
+            className="flex flex-col gap-5 md:gap-6 max-w-md lg:max-w-lg min-w-0
                        items-center text-center
                        md:items-start md:text-left
                        order-2 md:order-1"
@@ -270,7 +270,7 @@ export default function Hero() {
                  * clamp min drops from 3rem → 2rem so the name fits
                  * comfortably when centered on a 360px-wide phone.
                  */
-                fontSize  : "clamp(2rem, 10vw, 5.5rem)",
+                fontSize  : "clamp(2.4rem, 10vw, 5.5rem)",
                 lineHeight: 1.05,
                 display   : "inline-block",
               }}
@@ -290,22 +290,35 @@ export default function Hero() {
             <p
               ref={roleRef}
               data-hero-identity
-              className="font-display text-base sm:text-lg md:text-xl font-medium text-zinc-400 tracking-tight -mt-1 md:-mt-2"
+              className="font-display text-lg sm:text-xl md:text-xl font-medium text-zinc-400 tracking-tight -mt-1 md:-mt-2"
               style={{ minHeight: "1.75em" }}
             >
               {ROLES[0]}
             </p>
 
-            {/* CTAs — stacked on mobile, inline on sm+ */}
+            {/*
+             * CTAs — full-width stacked on mobile, inline on sm+.
+             * items-stretch makes the <a> tags fill the flex column width.
+             * Button className w-full + justify-center fills the span inside.
+             * sm:w-auto + sm:justify-start restores natural sizing on wider screens.
+             */}
             <div
               data-hero-cta
-              className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-1 md:pt-2"
+              className="flex flex-col items-stretch sm:flex-row sm:items-center gap-3 sm:gap-4 pt-1 md:pt-2 w-full sm:w-auto"
             >
-              <Button href="#projects" variant="primary">
+              <Button
+                href="#projects"
+                variant="primary"
+                className="w-full sm:w-auto justify-center sm:justify-start"
+              >
                 View Projects
                 <ArrowRight size={14} strokeWidth={2} />
               </Button>
-              <Button href="#contact" variant="ghost">
+              <Button
+                href="#contact"
+                variant="ghost"
+                className="w-full sm:w-auto justify-center sm:justify-start"
+              >
                 Contact Me
                 <Mail size={14} strokeWidth={1.5} />
               </Button>
@@ -319,8 +332,8 @@ export default function Hero() {
               relative flex flex-col flex-shrink-0 items-center justify-end
               order-1 md:order-2
               self-center md:self-end
-              h-[200px] w-auto
-              sm:h-[240px]
+              h-[230px] w-auto
+              sm:h-[270px]
               md:h-full
             "
           >
@@ -347,7 +360,7 @@ export default function Hero() {
                  * Mobile portrait — explicit px dimensions required for next/image fill.
                  * Shown only on < md (hidden on desktop via the desktop div below).
                  */}
-                <div className="relative block md:hidden w-[130px] h-[196px] sm:w-[160px] sm:h-[240px]">
+                <div className="relative block md:hidden w-[155px] h-[232px] sm:w-[180px] sm:h-[270px]">
                   <Image
                     src="/images/portrait.png"
                     alt="P. S. Kedar — portrait"
@@ -355,7 +368,7 @@ export default function Hero() {
                     priority
                     className="object-contain object-bottom"
                     style={{ transform: "scale(1.08)", transformOrigin: "bottom center" }}
-                    sizes="(max-width: 640px) 130px, 160px"
+                    sizes="(max-width: 640px) 155px, 180px"
                   />
                 </div>
 

@@ -115,7 +115,7 @@ export default function Skills() {
             >
               {group.category}
             </p>
-            <div className="flex flex-col gap-2.5 md:gap-3">
+            <div className="flex flex-col gap-3">
               {group.skills.map((skill, si) => (
                 <SkillItem
                   key={skill.label}
